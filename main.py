@@ -4,16 +4,16 @@ import pygame
 from pygame.locals import * # Basic pygame imports
 
 # Global Variables for the game
-FPS = 32
+FPS = 40
 SCREENWIDTH = 289
 SCREENHEIGHT = 511
 SCREEN = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT))
 GROUNDY = SCREENHEIGHT * 0.8
 GAME_SPRITES = {}
 
-PLAYER = 'gallery/sprites/bird.png'
-BACKGROUND = 'gallery/sprites/background.png'
-PIPE = 'gallery/sprites/pipe.png'
+PLAYER = 'gallery/sprites/bird.jpeg'
+BACKGROUND = 'gallery/sprites/background.jpeg'
+PIPE = 'gallery/sprites/index.jpeg'
 
 def welcomeScreen():
     """
@@ -202,7 +202,7 @@ if __name__ == "__main__":
     )
 
     GAME_SPRITES['message'] =pygame.image.load('gallery/sprites/message.png').convert_alpha()
-    GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.png').convert_alpha()
+    GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.jpeg').convert_alpha()
     GAME_SPRITES['pipe'] =(pygame.transform.rotate(pygame.image.load( PIPE).convert_alpha(), 180), 
     pygame.image.load(PIPE).convert_alpha()
     )
