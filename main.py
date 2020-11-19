@@ -1,6 +1,6 @@
 import random # For generating random numbers
 import sys # We will use sys.exit to exit the program
-import pygame
+import pygame 
 from pygame.locals import * # Basic pygame imports
 
 # Global Variables for the game
@@ -11,9 +11,9 @@ SCREEN = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT))
 GROUNDY = SCREENHEIGHT * 0.8
 GAME_SPRITES = {}
 
-PLAYER = 'gallery/sprites/bird.jpeg'
-BACKGROUND = 'gallery/sprites/background.jpeg'
-PIPE = 'gallery/sprites/index.jpeg'
+PLAYER = 'gallery/sprites/bird.png'
+BACKGROUND = 'gallery/sprites/background.png'
+PIPE = 'gallery/sprites/pipe.png'
 
 def welcomeScreen():
     """
@@ -25,6 +25,7 @@ def welcomeScreen():
     messagex = int((SCREENWIDTH - GAME_SPRITES['message'].get_width())/2)
     messagey = int(SCREENHEIGHT*0.13)
     basex = 0
+    #Game
     while True:
         for event in pygame.event.get():
             # if user clicks on cross button, close the game
@@ -81,10 +82,13 @@ def mainGame():
                 pygame.quit()
                 sys.exit()
             if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP):
-                if playery > 0:
+               
+                if playery > 0: #Player is in the screen
                     playerVelY = playerFlapAccv
-                    playerFlapped = True
                     
+                    playerFlapped = True
+            if playerFlapped:
+                playerFlapped = False  
 
 
         crashTest = isCollide(playerx, playery, upperPipes, lowerPipes) # This function will return true if the player is crashed
@@ -102,10 +106,11 @@ def mainGame():
 
 
         if playerVelY <playerMaxVelY and not playerFlapped:
+        
             playerVelY += playerAccY
+            print(playerVelY)
 
-        if playerFlapped:
-            playerFlapped = False            
+                  
         playerHeight = GAME_SPRITES['player'].get_height()
         playery = playery + min(playerVelY, GROUNDY - playery - playerHeight)
 
@@ -168,10 +173,13 @@ def getRandomPipe():
     Generate positions of two pipes(one bottom straight and one top rotated ) for blitting on the screen
     """
     pipeHeight = GAME_SPRITES['pipe'][0].get_height()
+    print(pipeHeight)
+    # print(pipeHeight)
     offset = SCREENHEIGHT/3
-    y2 = offset + random.randrange(0, int(SCREENHEIGHT - GAME_SPRITES['base'].get_height()  - 1.2 *offset))
+    y2 = random.randrange(int(offset), int(SCREENHEIGHT - GAME_SPRITES['base'].get_height()  - 0.5 *offset))
+    """range is always 100,220 """
     pipeX = SCREENWIDTH + 10
-    y1 = pipeHeight - y2 + offset
+    y1 = pipeHeight - y2+100
     pipe = [
         {'x': pipeX, 'y': -y1}, #upper Pipe
         {'x': pipeX, 'y': y2} #lower Pipe
@@ -202,7 +210,7 @@ if __name__ == "__main__":
     )
 
     GAME_SPRITES['message'] =pygame.image.load('gallery/sprites/message.png').convert_alpha()
-    GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.jpeg').convert_alpha()
+    GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.png').convert_alpha()
     GAME_SPRITES['pipe'] =(pygame.transform.rotate(pygame.image.load( PIPE).convert_alpha(), 180), 
     pygame.image.load(PIPE).convert_alpha()
     )
