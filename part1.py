@@ -63,9 +63,6 @@ GAME_SPRITES['numbers'] = (
 
 GAME_SPRITES['message'] =pygame.image.load('gallery/sprites/message.png').convert_alpha()
 GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.png').convert_alpha()
-GAME_SPRITES['pipe'] =(pygame.transform.rotate(pygame.image.load( PIPE).convert_alpha(), 180), pygame.image.load(PIPE).convert_alpha())
-
-
 GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert()
 GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
 print(GAME_SPRITES['pipe'])

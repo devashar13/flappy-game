@@ -15,6 +15,11 @@ PLAYER = 'gallery/sprites/bird.png'
 BACKGROUND = 'gallery/sprites/background.png'
 PIPE = 'gallery/sprites/pipe.png'
 
+
+
+
+
+
 def welcomeScreen():
     """
     Shows welcome images on the screen
@@ -45,18 +50,23 @@ def welcomeScreen():
                 FPSCLOCK.tick(FPS)
 
 
+
+
+
+
+
 pygame.init() # Initialize all pygame's modules
 FPSCLOCK = pygame.time.Clock()
 pygame.display.set_caption('Flappy Bird CSI')
 
 GAME_SPRITES['message'] =pygame.image.load('gallery/sprites/message.png').convert_alpha()
 GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.png').convert_alpha()
-GAME_SPRITES['pipe'] =(pygame.transform.rotate(pygame.image.load( PIPE).convert_alpha(), 180), pygame.image.load(PIPE).convert_alpha())
-
-
 GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert()
 GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
-print(GAME_SPRITES['pipe'])
+
+
+
+
 
 
 def mainGame():
