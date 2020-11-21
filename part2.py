@@ -55,19 +55,6 @@ def welcomeScreen():
 
 
 
-pygame.init() # Initialize all pygame's modules
-FPSCLOCK = pygame.time.Clock()
-pygame.display.set_caption('Flappy Bird CSI')
-
-GAME_SPRITES['message'] =pygame.image.load('gallery/sprites/message.png').convert_alpha()
-GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.png').convert_alpha()
-GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert()
-GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
-
-
-
-
-
 
 def mainGame():
     
@@ -75,7 +62,7 @@ def mainGame():
     playery = int(SCREENWIDTH/2)
     basex = 0
 
-    # Create 2 pipes for blitting on the screen
+    
     
 
     playerVelY = -9
@@ -109,7 +96,7 @@ def mainGame():
         if playerVelY <playerMaxVelY and not playerFlapped:
         
             playerVelY += playerAccY
-            print(playerVelY)
+            
 
                   
         playerHeight = GAME_SPRITES['player'].get_height()
@@ -125,6 +112,16 @@ def mainGame():
         SCREEN.blit(GAME_SPRITES['player'], (playerx, playery))
         pygame.display.update()
         FPSCLOCK.tick(FPS)
+
+pygame.init() # Initialize all pygame's modules
+FPSCLOCK = pygame.time.Clock()
+pygame.display.set_caption('Flappy Bird CSI')
+
+GAME_SPRITES['message'] =pygame.image.load('gallery/sprites/message.png').convert_alpha()
+GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.png').convert_alpha()
+GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert()
+GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
+
 
 
 while True:

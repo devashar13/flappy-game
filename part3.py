@@ -49,7 +49,6 @@ def welcomeScreen():
 
 
 def mainGame():
-    score = 0
     playerx = int(SCREENWIDTH/5)
     playery = int(SCREENWIDTH/2)
     basex = 0
@@ -95,15 +94,8 @@ def mainGame():
                 playerFlapped = False  
 
 
-             
-
-        #check for score
-        playerMidPos = playerx + GAME_SPRITES['player'].get_width()/2
-        for pipe in upperPipes:
-            pipeMidPos = pipe['x'] + GAME_SPRITES['pipe'][0].get_width()/2
-            if pipeMidPos<= playerMidPos < pipeMidPos +4:
-                score +=1
-                print(f"Your score is {score}") 
+      
+        
                 
 
 
@@ -160,20 +152,6 @@ def getRandomPipe():
 
 
     
-    for pipe in upperPipes:
-        pipeHeight = GAME_SPRITES['pipe'][0].get_height()
-        if(playery < pipeHeight + pipe['y'] and abs(playerx - pipe['x']) < GAME_SPRITES['pipe'][0].get_width()):
-            
-            return True
-
-    for pipe in lowerPipes:
-        if (playery + GAME_SPRITES['player'].get_height() > pipe['y']) and abs(playerx - pipe['x']) < GAME_SPRITES['pipe'][0].get_width():
-            
-            return True
-
-    return False
-
-
 
 pygame.init() # Initialize all pygame's modules
 FPSCLOCK = pygame.time.Clock()
