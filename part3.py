@@ -76,7 +76,7 @@ def mainGame():
     playerAccY = 1
 
     playerFlapAccv = -8 # velocity while flapping
-    playerFlapped = False # It is true only when the bird is flapping
+    
 
 
     while True:
@@ -89,9 +89,8 @@ def mainGame():
                 if playery > 0: #Player is in the screen
                     playerVelY = playerFlapAccv
                     
-                    playerFlapped = True
-            if playerFlapped:
-                playerFlapped = False  
+                    
+              
 
 
       
@@ -99,7 +98,7 @@ def mainGame():
                 
 
 
-        if playerVelY <playerMaxVelY and not playerFlapped:
+        if playerVelY <playerMaxVelY:
         
             playerVelY += playerAccY
             print(playerVelY)

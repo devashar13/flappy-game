@@ -65,13 +65,13 @@ def mainGame():
     
     
 
-    playerVelY = -9
+    playerVelY = -8
     playerMaxVelY = 10
     playerMinVelY = -8
     playerAccY = 1
 
     playerFlapAccv = -8 # velocity while flapping
-    playerFlapped = False # It is true only when the bird is flapping
+     
 
 
     while True:
@@ -84,27 +84,26 @@ def mainGame():
                 if playery > 0: #Player is in the screen
                     playerVelY = playerFlapAccv
                     
-                    playerFlapped = True
-            if playerFlapped:
-                playerFlapped = False  
+                    
+          
 
 
 
                 
 
 
-        if playerVelY <playerMaxVelY and not playerFlapped:
-        
+        if playerVelY <playerMaxVelY:
+            
             playerVelY += playerAccY
             
 
                   
         playerHeight = GAME_SPRITES['player'].get_height()
         playery = playery + min(playerVelY, GROUNDY - playery - playerHeight)
-
        
         
-        # Lets blit our sprites now
+       
+        
         SCREEN.blit(GAME_SPRITES['background'], (0, 0))
         
 
