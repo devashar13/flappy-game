@@ -34,7 +34,7 @@ def welcomeScreen():
                 sys.exit()
 
             # If the user presses space or up key, start the game for them
-            elif event.type==KEYDOWN and (event.key==K_SPACE or event.key == K_UP):
+            if event.type==KEYDOWN and (event.key==K_SPACE or event.key == K_UP):
                 return
             else:
                 SCREEN.blit(GAME_SPRITES['background'], (0, 0))    
@@ -65,7 +65,7 @@ GAME_SPRITES['message'] =pygame.image.load('gallery/sprites/message.png').conver
 GAME_SPRITES['base'] =pygame.image.load('gallery/sprites/base.png').convert_alpha()
 GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert()
 GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
-print(GAME_SPRITES['pipe'])
 
-while True:
-    welcomeScreen() # Shows welcome screen to the user until he presses a button
+
+
+welcomeScreen() # Shows welcome screen to the user until he presses a button
