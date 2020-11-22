@@ -70,7 +70,7 @@ def mainGame():
     playerMinVelY = -8
     playerAccY = 1
 
-    playerFlapAccv = -8 # velocity while flapping
+    playerFlapVel = -8 # velocity while flapping
      
 
 
@@ -82,7 +82,7 @@ def mainGame():
             if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP):
                
                 if playery > 0: #Player is in the screen
-                    playerVelY = playerFlapAccv
+                    playerVelY = playerFlapVel
                     
                     
           
